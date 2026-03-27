@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheme Sakhi 🇮🇳</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="bg-pattern"></div>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-flag">
+            <span class="flag-saffron"></span>
+            <span class="flag-white"></span>
+            <span class="flag-green"></span>
+        </div>
+        <div class="header-content">
+            <div class="logo-row">
+                <span class="logo-icon">📜</span>
+                <h1>Scheme Sakhi</h1>
+            </div>
+            <p class="tagline-en">Your AI Friend for Government Schemes</p>
+            <p class="tagline-hi">सरकारी योजनाओं के लिए आपका AI साथी</p>
+        </div>
+        <div class="header-badge">AI Powered</div>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="card form-box">
+
+        <div class="card-title">
+            <span>📋</span> Tell us about yourself
+            <span class="card-title-hi">अपने बारे में बताएं</span>
+        </div>
+
+        <!-- Language -->
+        <div class="field">
+            <label>🌐 Language / भाषा</label>
+            <div class="select-wrap">
+                <select id="language">
+                    <option value="english">🇬🇧 English</option>
+                    <option value="hindi">🇮🇳 हिंदी</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- State -->
+        <div class="field">
+            <label>📍 Your State / आपका राज्य</label>
+            <div class="input-row">
+                <input type="text" id="state" placeholder="e.g. Maharashtra, Bihar, Delhi...">
+                <button class="mic-btn" onclick="startVoice('state')" title="Speak your state">
+                    <span class="mic-icon">🎤</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Category -->
+        <div class="field">
+            <label>👤 Category / श्रेणी</label>
+            <div class="select-wrap">
+                <select id="category">
+                    <option value="farmer">🌾 Farmer / किसान</option>
+                    <option value="student">🎓 Student / छात्र</option>
+                    <option value="woman">👩 Woman / महिला</option>
+                    <option value="senior citizen">👴 Senior Citizen / वरिष्ठ नागरिक</option>
+                    <option value="BPL">🏠 BPL / गरीबी रेखा से नीचे</option>
+                    <option value="general">🙋 General / सामान्य</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Age -->
+        <div class="field">
+            <label>🎂 Age / आयु</label>
+            <input type="number" id="age" placeholder="e.g. 35" min="1" max="120">
+        </div>
+
+        <!-- Problem -->
+        <div class="field">
+            <label>💬 Your Problem / आपकी समस्या</label>
+            <div class="input-row voice-textarea-row">
+                <textarea id="problem" rows="3" placeholder="Speak or type your need here...&#10;यहाँ बोलें या लिखें..."></textarea>
+                <button class="mic-btn mic-btn-top" id="problem-mic-btn" onclick="startVoiceProblem()" title="Speak your problem">
+                    <span class="mic-icon">🎤</span>
+                </button>
+            </div>
+            <div class="voice-hint">💡 Tap mic → speak clearly → tap again to stop</div>
+        </div>
+
+        <button onclick="getSchemes()" id="submit-btn">
+            <span id="btn-text">🔍 Find My Schemes / योजना खोजें</span>
+            <span id="btn-loader" style="display:none">⏳ Searching...</span>
+        </button>
+
+    </div>
+
+    <!-- RESPONSE CARD -->
+    <div class="card response-box" id="response-box" style="display:none">
+        <div class="card-title">
+            <span>📋</span> Recommended Schemes
+            <span class="card-title-hi">अनुशंसित योजनाएं</span>
+        </div>
+        <div id="response-text"></div>
+        <div class="action-btns">
+            <button onclick="speakResponse()" id="speak-btn">
+                🔊 Listen / सुनें
+            </button>
+            <button onclick="stopSpeech()" id="stop-btn">
+                ⏹ Stop / रोकें
+            </button>
+        </div>
+    </div>
+
+    <div class="footer">
+        Made with ❤️ for Bharat 🇮🇳 &nbsp;|&nbsp; Scheme Sakhi AI Agent
+    </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
